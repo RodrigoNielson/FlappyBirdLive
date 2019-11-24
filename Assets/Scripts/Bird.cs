@@ -11,12 +11,14 @@ public class Bird : MonoBehaviour
 
     private Animator animator;
     private Rigidbody2D rigidbody2d;
+    private AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class Bird : MonoBehaviour
 
                 rigidbody2d.velocity = Vector2.zero;
                 rigidbody2d.AddForce(new Vector2(0, upForce));
+                audio.Play();
             }
         }
     }
